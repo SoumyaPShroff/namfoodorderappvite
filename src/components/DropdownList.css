@@ -1,0 +1,31 @@
+/* dropdown.css */
+
+.dropdown {
+  width: 250px;
+  padding: 8px 12px;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  appearance: none; /* Remove native arrow for customization */
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D'http%3A//www.w3.org/2000/svg'%20viewBox%3D'0%200%204%205'%3E%3Cpath%20fill%3D'%23666'%20d%3D'M2%200L0%202h4L2%200zM0%203l2%202%202-2H0z'/%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.dropdown:focus {
+  border-color: #66afe9;
+  outline: none;
+  box-shadow: 0 0 4px rgba(102, 175, 233, 0.6);
+}
+
+.dropdown:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  color: #aaa;
+}
