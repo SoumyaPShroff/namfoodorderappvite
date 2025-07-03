@@ -1,6 +1,8 @@
 //we can also write , sending indiviual parameters like below - mulitple parameter kind
 //const RestaurantCard = ({ resName, cuisine}) => {
 //  const RestaurantCard = (props) => {
+import "../styles/RestaurantCard.css"; // Importing CSS for restaurant card
+
 const RestaurantCard = ({ resData }) => {
   return (
     <div className="res-card">

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./RestaurantCard.css";
+import "../styles/RestaurantCard.css";
 
 interface SearchProps {
     onSearch: (query: string) => void;

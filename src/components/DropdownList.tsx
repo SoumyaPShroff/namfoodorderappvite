@@ -1,5 +1,5 @@
 import React from 'react'
-import "./DropdownList.css"; // Importing CSS for dropdown
+import '../styles/DropdownList.css'
 
 function DropdownList({ data = [], labelKey, valueKey, onChange, selectedValue, placeholder = "-- Select --" }, disabled = false) {
 return (

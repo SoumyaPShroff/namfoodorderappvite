@@ -1,6 +1,7 @@
 import React from 'react';
 import { LOGO_URL } from '../utils/constants';
 import { Link } from 'react-router-dom';
+import '../App.css'; // Importing CSS for header
 
 const Header = () => {
   return (
@@ -10,9 +11,9 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About Us</Link></li>
-          <li>Contact Us</li>
+          <li><Link to="/" className='link-label'>Home</Link></li>
+          <li><Link to="/about" className='link-label'>About Us</Link></li>
+          <li><Link to="/contact" className='link-label'>Contact Us</Link></li>
         </ul>
       </div>
     </div>

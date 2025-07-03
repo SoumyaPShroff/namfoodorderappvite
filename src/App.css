@@ -66,3 +66,9 @@
   z-index: 1000;
 
 }
+.link-label{
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: blue;
+  padding: 0.5rem 1rem;
+}

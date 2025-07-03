@@ -2,10 +2,10 @@ import React from "react";
 import RestaurantCard from "./RestaurantCard";
 import { useState } from "react";
 import Search from "./Search";
-import "./RestaurantCard.css";
 import data from "../utils/Data.json"  //data taken from Data.json file
-import "./DropdownList.css"; // Importing CSS for dropdown
-import DropdownList from "./DropdownList";
+import DropdownList from "./DropdownList"; //importing dropdown component
+import "../styles/RestaurantCard.css"; //importing css for restaurant card
+import "../styles/DropdownList.css"; //importing css for dropdown
 
 const Body = () => {
     const resList = data.restoList;
