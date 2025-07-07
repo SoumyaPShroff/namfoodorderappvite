@@ -13,7 +13,7 @@ const App = () => {
       {/* <ShimmerCircular />  */}
       <Routes>
         <Route path="/" element={<Body />} />
-        <Route path="/about" element={<Aboutus />} />
+        <Route path="/Aboutus" element={<Aboutus />} />
       </Routes>
 
     </div>

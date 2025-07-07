@@ -94,15 +94,16 @@ const Body = () => {
                 {
                     filteredResList.map((restaurant) => (
                         <RestaurantCard key={restaurant.id} resData={restaurant}
-                         onClick={() => setSelectedRestaurant(restaurant)} />
+                         />
                     )
                     )
                 }
+
             </div>
             <div>
                  {/* Show restaurant details below on card click */}
-                <RestaurantDetailsGrid restaurant={selectedRestaurant} />
- 
+                {/* <RestaurantDetailsGrid restaurant={selectedRestaurant} />
+  */}
             </div>
         </div>
     );

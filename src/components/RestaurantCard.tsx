@@ -2,14 +2,24 @@
 //const RestaurantCard = ({ resName, cuisine}) => {
 //  const RestaurantCard = (props) => {
 import "../styles/RestaurantCard.css"; // Importing CSS for restaurant card
+import { useNavigate } from "react-router-dom";
 
-const RestaurantCard = ({ resData, onClick  }) => {
+// const RestaurantCard = ({ resData, onClick }) => {
+
+const RestaurantCard = ({ resData }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    console.log("Restaurant data passed:", resData);  
+    navigate('/Aboutus', { state: { restaurant: resData } });
+  };
+
   return (
-    <div className="res-card"  onClick={() => onClick(resData)}>
+    // <div className="res-card" onClick={() => onClick(resData)}>
+       <div className="res-card" onClick={handleClick}>
       <img className="res-logo"
         alt="res-logo"
-        src=
-        {
+        src={
           resData.data.reslogo
         }
       />
