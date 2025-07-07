@@ -3,17 +3,14 @@
 //  const RestaurantCard = (props) => {
 import "../styles/RestaurantCard.css"; // Importing CSS for restaurant card
 
-const RestaurantCard = ({ resData }) => {
+const RestaurantCard = ({ resData, onClick  }) => {
   return (
-    <div className="res-card">
+    <div className="res-card"  onClick={() => onClick(resData)}>
       <img className="res-logo"
         alt="res-logo"
-        //below link work hardcoded
-        //  src="https://carameltintedlife.com/wp-content/uploads/2022/02/vegetable-pulao-veg-pilaf-4.jpg"/>  
         src=
         {
           resData.data.reslogo
-
         }
       />
       <h3>{resData.data.name}</h3>

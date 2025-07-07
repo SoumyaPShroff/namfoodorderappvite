@@ -1,17 +1,20 @@
 import React from "react";
 import RestaurantCard from "./RestaurantCard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Search from "./Search";
 import data from "../utils/Data.json"  //data taken from Data.json file
 import DropdownList from "./DropdownList"; //importing dropdown component
 import "../styles/RestaurantCard.css"; //importing css for restaurant card
 import "../styles/DropdownList.css"; //importing css for dropdown
+import "../styles/Grid.css";
+import RestaurantDetailsGrid from "./RestaurantDetailsGrid";
 
 const Body = () => {
     const resList = data.restoList;
     const [filteredResList, setFilteredResList] = useState(resList);
     const [searchText, setSearchText] = useState("");
     const [searchPlace, setsearchPlace] = useState("All");
+      const [selectedRestaurant, setSelectedRestaurant] = useState(null);
 
     const handleFilterRes = (searchstring) => {
         if (!searchstring.trim()) {
@@ -43,6 +46,24 @@ const Body = () => {
         }
     };
 
+// useEffect(() => {
+//      fetchData();
+// }, []);
+
+// const fetchData = async () => {
+//     {
+//         try {
+//             const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.971599&lng=77.594566&page_type=DESKTOP_WEB_LISTING");
+//             const data = await response.json();
+//             // Assuming the data structure is similar to your local data
+//             setFilteredResList(data.data.cards[0].card.card.gridElements.infoWithStyle.restaurants);
+//             console.log("Fetched data:", data); 
+//         } catch (error) {
+//             console.error("Error fetching data:", error);
+//         }
+//     }    
+
+// }
     return (
         <div className="body">
             <div>
@@ -72,12 +93,16 @@ const Body = () => {
             <div className="res-container">
                 {
                     filteredResList.map((restaurant) => (
-                        <RestaurantCard key={restaurant.id} resData={restaurant} />
+                        <RestaurantCard key={restaurant.id} resData={restaurant}
+                         onClick={() => setSelectedRestaurant(restaurant)} />
                     )
                     )
-
                 }
-
+            </div>
+            <div>
+                 {/* Show restaurant details below on card click */}
+                <RestaurantDetailsGrid restaurant={selectedRestaurant} />
+ 
             </div>
         </div>
     );

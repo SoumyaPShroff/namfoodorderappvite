@@ -1,0 +1,26 @@
+.details-grid {
+  /* display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 20px;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 8px; */
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  background-color: #f8f8f8;
+  color: #333;
+}
+ 
+.details-grid .image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.details-grid .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}

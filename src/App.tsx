@@ -5,14 +5,17 @@ import Body from './components/Body';
 import Aboutus from './components/Aboutus';
 import './App.css';
 
+
 const App = () => {
   return (
     <div className="App">
       <Header />
+      {/* <ShimmerCircular />  */}
       <Routes>
         <Route path="/" element={<Body />} />
         <Route path="/about" element={<Aboutus />} />
       </Routes>
+
     </div>
   );
 };
