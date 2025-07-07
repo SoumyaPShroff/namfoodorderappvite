@@ -9,7 +9,7 @@ const RestaurantDetailsGrid = ({ restaurant }) => {
   return (
     <div className="details-grid">
       <div className="image">
-        {/* <img src={restaurant.data.reslogo}/> */}
+        <img src={restaurant.data.reslogo}/> 
         <h2>{restaurant.data.name}</h2>
         <p><strong>Place:</strong> {restaurant.data.place}</p>
         <p><strong>Rating:</strong> {restaurant.data.rating}</p>
