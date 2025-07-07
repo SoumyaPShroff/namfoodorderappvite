@@ -4,7 +4,7 @@ import "../styles/Grid.css";
 
 const RestaurantDetailsGrid = ({ restaurant }) => {
   if (!restaurant) return null;
- console.log("Restaurant Details:", restaurant);
+ //console.log("Restaurant Details:", restaurant);
 
   return (
     <div className="details-grid">
