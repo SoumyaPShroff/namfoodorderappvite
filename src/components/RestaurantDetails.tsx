@@ -2,10 +2,9 @@
 import React from "react";
 import "../styles/Grid.css";
 
-const RestaurantDetailsGrid = ({ restaurant }) => {
+const RestaurantDetails = ({ restaurant }) => {
   if (!restaurant) return null;
- //console.log("Restaurant Details:", restaurant);
-
+  
   return (
     <div className="details-grid">
       <div className="image">
@@ -20,4 +19,4 @@ const RestaurantDetailsGrid = ({ restaurant }) => {
   );
 };
 
-export default RestaurantDetailsGrid;
+export default RestaurantDetails;

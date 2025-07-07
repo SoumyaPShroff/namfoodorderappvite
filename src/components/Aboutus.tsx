@@ -1,12 +1,11 @@
 
 // Aboutus.jsx or Aboutus.tsx
 import { useLocation } from "react-router-dom";
-import RestaurantDetailsGrid from "./RestaurantDetailsGrid";
+import RestaurantDetails from "./RestaurantDetails";
 
 const Aboutus = () => {
     const location = useLocation();
     const restaurant = location.state?.restaurant; // 👈 Correct way to access it
-    //console.log("About us", restaurant);
 
     if (!restaurant) {
         return (
@@ -21,7 +20,7 @@ const Aboutus = () => {
 
     return (
         <div>
-            <RestaurantDetailsGrid restaurant={restaurant} />
+            <RestaurantDetails restaurant={restaurant} />
         </div>
     );
 };

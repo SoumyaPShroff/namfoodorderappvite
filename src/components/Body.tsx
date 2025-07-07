@@ -7,7 +7,6 @@ import DropdownList from "./DropdownList"; //importing dropdown component
 import "../styles/RestaurantCard.css"; //importing css for restaurant card
 import "../styles/DropdownList.css"; //importing css for dropdown
 import "../styles/Grid.css";
-import RestaurantDetailsGrid from "./RestaurantDetailsGrid";
 
 const Body = () => {
     const resList = data.restoList;
@@ -98,12 +97,6 @@ const Body = () => {
                     )
                     )
                 }
-
-            </div>
-            <div>
-                 {/* Show restaurant details below on card click */}
-                {/* <RestaurantDetailsGrid restaurant={selectedRestaurant} />
-  */}
             </div>
         </div>
     );
