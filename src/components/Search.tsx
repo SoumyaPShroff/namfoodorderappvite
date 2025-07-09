@@ -11,6 +11,8 @@ const Search = ({ onSearch, placeholder }: SearchProps) => {
 
     const handleSearch = () => {
         onSearch(searchItem);
+        //like search
+        // onSearch(searchItem.toLowerCase().trim());
     };
 
     return (
@@ -22,18 +24,8 @@ const Search = ({ onSearch, placeholder }: SearchProps) => {
                     onChange={(e) => setSearchItem(e.target.value)}
                     placeholder={placeholder}
                 />
-                {/* <button
-              style={{
-                marginLeft: "10px",
-                backgroundColor: "#da9b26",
-                color: "white",
-              }}
-              onClick={handleSearch}
-            >
-              Search
-            </button> */}
                 <img
-                    src="https://cdn-icons-png.flaticon.com/512/54/54481.png"  
+                    src="https://cdn-icons-png.flaticon.com/512/54/54481.png"
                     alt="Search"
                     onClick={handleSearch}
                     style={{
@@ -45,7 +37,6 @@ const Search = ({ onSearch, placeholder }: SearchProps) => {
                     }}
                 />
             </div>
-
         </>
     )
 }

@@ -52,5 +52,35 @@
                 "rating": "4.2"
             }
         }
-    ]
+    ],
+"mockRows" :  [
+  { "id": 1, "name": "Alice Johnson", "email": "alice@example.com","age": 28,"country": "USA"},
+  { "id": 2, "name": "Bob Smith", "email": "bob@example.com", "age": 34, "country": "UK" },
+  { "id": 3, "name": "Charlie Brown", "email": "charlie@example.com", "age": 22, "country": "Canada" },
+  { "id": 4, "name": "Diana Prince", "email": "diana@example.com", "age": 30, "country": "France" },
+  { "id": 5, "name": "Evan Wright", "email": "evan@example.com", "age": 40, "country": "Germany" }
+],
+
+"mockColumns" :  [
+  { "field": "id", "headerName":"ID", "width": 70 },
+  { "field": "name", "headerName": "Name", "width": 180 },
+  { "field": "email", "headerName": "Email","width": 220 },
+  { "field": "age", "headerName": "Age", "width": 100,"type": "number" },
+  { "field": "country", "headerName": "Country", "width": 150 }
+],
+"Rows" :  [
+  { "id": 1, "name": "Soumya", "email": "som@example.com","age": 28,"country": "USA"},
+  { "id": 2, "name": "Avinash", "email": "Avi@example.com", "age": 34, "country": "UK" },
+  { "id": 3, "name": "Ashwini", "email": "Ash@example.com", "age": 22, "country": "Canada" },
+  { "id": 4, "name": "Savita", "email": "Sav@example.com", "age": 30, "country": "France" }
+],
+
+"Columns" :  [
+  { "field": "id", "headerName":"ID", "width": 70 },
+  { "field": "name", "headerName": "Name", "width": 180 },
+  { "field": "email", "headerName": "Email","width": 220 },
+  { "field": "age", "headerName": "Age", "width": 100,"type": "number" },
+  { "field": "country", "headerName": "Country", "width": 150 }
+]
+
 }

@@ -13,7 +13,7 @@ const Body = () => {
     const [filteredResList, setFilteredResList] = useState(resList);
     const [searchText, setSearchText] = useState("");
     const [searchPlace, setsearchPlace] = useState("All");
-      const [selectedRestaurant, setSelectedRestaurant] = useState(null);
+    const [selectedRestaurant, setSelectedRestaurant] = useState(null);
 
     const handleFilterRes = (searchstring) => {
         if (!searchstring.trim()) {
@@ -45,24 +45,6 @@ const Body = () => {
         }
     };
 
-// useEffect(() => {
-//      fetchData();
-// }, []);
-
-// const fetchData = async () => {
-//     {
-//         try {
-//             const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.971599&lng=77.594566&page_type=DESKTOP_WEB_LISTING");
-//             const data = await response.json();
-//             // Assuming the data structure is similar to your local data
-//             setFilteredResList(data.data.cards[0].card.card.gridElements.infoWithStyle.restaurants);
-//             console.log("Fetched data:", data); 
-//         } catch (error) {
-//             console.error("Error fetching data:", error);
-//         }
-//     }    
-
-// }
     return (
         <div className="body">
             <div>
@@ -79,21 +61,18 @@ const Body = () => {
                     selectedValue={searchPlace}
                     disabled={true}
                 />
-
             </div>
-
             <div>
                 <Search
                     onSearch={handleFilterRes}
                     placeholder="Search for restaurants..."
                 />
             </div>
-
             <div className="res-container">
                 {
                     filteredResList.map((restaurant) => (
                         <RestaurantCard key={restaurant.id} resData={restaurant}
-                         />
+                        />
                     )
                     )
                 }
