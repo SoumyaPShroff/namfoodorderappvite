@@ -72,3 +72,6 @@
   color: blue;
   padding: 0.5rem 1rem;
 }
+.nav-items{
+  display: flex;
+}

@@ -7,8 +7,12 @@ import './App.css';
 import DataGridView from './components/DataGridView';
 import { Rows, Columns } from "./utils/data.json";      // Adjust the path as necessary
 
+document.addEventListener("contextmenu", function (e) {
+  console.log("🧪 Global contextmenu event at:", e.target);
+}, true);
 
 const App = () => {
+
   return (
     <div className="App">
       <Header />
@@ -21,7 +25,7 @@ const App = () => {
       {/*  we can also use OutLet component to render the child components , children inside the parent component 
        <Outlet />
      */}
-      <DataGridView
+        <DataGridView
         dataRows={Rows}
         dataColumns={Columns}
         // pageSize={5}
@@ -29,7 +33,7 @@ const App = () => {
         // checkboxSelection={true}
         height={500}
         width={800}
-      />
+      />  
     </div>
   );
 };

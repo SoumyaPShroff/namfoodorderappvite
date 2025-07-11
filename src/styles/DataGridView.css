@@ -26,13 +26,3 @@
  .datagrid-custom .MuiDataGrid-row:hover {
   background-color: #f0f0f0;
 }  
-
-  .custom-context-menu li {
-  padding: 8px 16px;
-  cursor: pointer;
-  background-color: rgb(105, 169, 198);
-}
-
-.custom-context-menu li:hover {
-  background-color: #504343;
-}

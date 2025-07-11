@@ -1,23 +1,42 @@
 import React, { useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import '../styles/DataGridView.css';
+import { Menu, MenuItem } from '@mui/material';
 
-function DataGridView({ dataRows = Rows, dataColumns = Columns, pageSize, rowsPerPageOptions = [5], checkboxSelection = false, height = 500, width = 800, }) {
-  const [contextMenu, setContextMenu] = useState(null);
+function DataGridView({
+  dataRows = Rows,
+  dataColumns = Columns,
+  pageSize,
+  rowsPerPageOptions = [5],
+  checkboxSelection = false,
+  height = 500,
+  width = 800,
+}) {
+
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [selectedRow, setSelectedRow] = useState(null);
 
-  const handleContextMenu = (event, row) => {
+  // const handleContextMenu = (
+  //   event: React.MouseEvent<HTMLElement>,
+  //   row: any
+  // ) => {
+  //   event.preventDefault(); // prevent browser menu
+  //   setAnchorEl(event.currentTarget); // anchor to clicked cell
+  //   setSelectedRow(row);
+  // };
+
+  const handleContextMenu = () => {
     event.preventDefault();
-    console.log('Right-click triggered:', row);
-    setSelectedRow(row);
-    setContextMenu({
-      mouseX: event.clientX + 2,
-      mouseY: event.clientY - 6,
-    });
-  };
+
+    const rowId = event.currentTarget?.parentElement?.dataset?.id;
+    const clickedRow = dataRows.find(r => r.id.toString() === rowId);
+
+    setSelectedRow(clickedRow);
+    setAnchorEl(event.currentTarget);
+  }
 
   const handleClose = () => {
-    setContextMenu(null);
+    setAnchorEl(null);
     setSelectedRow(null);
   };
 
@@ -40,43 +59,44 @@ function DataGridView({ dataRows = Rows, dataColumns = Columns, pageSize, rowsPe
           {...(checkboxSelection !== undefined && { checkboxSelection })}
           {...(height !== undefined && { height })}
           {...(width !== undefined && { width })}
-          onCellContextMenu={(params, event) => handleContextMenu(event, params.row)}
+
+          //onCellClick - for left click
+          // onCellClick={(params, event) => {
+          //   //  if (event.button === 2) { // right-click - not recgnising right click
+          //   handleContextMenu(event, params.row);
+          //   console.log('✅ Left click on:', params.row);
+          //   //  }
+          // }}
+          // //oncellcontextmenu - for right click
+          // onCellContextMenu={(params, event) => {
+          //   event.preventDefault();
+          //   console.log('✅ Rightclick on:', params.row);
+          //   handleContextMenu(event, params.row);
+          // }}
+          componentsProps={{
+            cell: {
+              onContextMenu: (event) => {
+                event.preventDefault();
+
+                const rowId = event.currentTarget?.parentElement?.dataset?.id;
+                const clickedRow = dataRows.find(r => r.id.toString() === rowId);
+
+                console.log("✅ Right click on row:", clickedRow);
+
+                // You can now trigger your custom context menu logic here:
+                handleContextMenu(event, clickedRow);
+              },
+            }
+          }}
         />
-        {/* {contextMenu !== null && (
-          <ul
-            className="custom-context-menu"
-            style={{
-              top: contextMenu.mouseY,
-              left: contextMenu.mouseX,
-              position: 'absolute',
-              backgroundColor: '#fff',
-              boxShadow: '0 2px 6px rgba(0,0,0,0.2)',
-              padding: '0.5rem',
-              margin: 0,
-              listStyle: 'none',
-              zIndex: 9999,
-            }}
-            onMouseLeave={handleClose}
-          >
-            <li onClick={() => { alert('Edit ' + selectedRow?.id); handleClose(); }}>Edit</li>
-            <li onClick={() => { alert('Delete ' + selectedRow?.id); handleClose(); }}>Delete</li>
-          </ul>
-        )} */}
-        <ul
-  className="custom-context-menu"
-  style={{
-    position: 'absolute',
-    top: '100px',
-    left: '200px',
-    zIndex: 9999,
-    backgroundColor: 'white',
-    border: '1px solid #ccc',
-    padding: '10px',
-  }}
->
-  <li>Edit</li>
-  <li>Delete</li>
-</ul>
+        <Menu
+          anchorEl={anchorEl}
+          open={Boolean(anchorEl)}
+          onClose={() => setAnchorEl(null)}
+        >
+          <MenuItem onClick={() => { console.log('Edit', selectedRow); }}>Edit</MenuItem>
+          <MenuItem onClick={() => { console.log('Delete', selectedRow); }}>Delete</MenuItem>
+        </Menu>
       </div>
     </div>
   );
